@@ -91,7 +91,7 @@ def actuate(rooms_dict, relinquish=False):
             
             current_time = arrow.now()
             formatted_time = current_time.format(time_format)
-            print(f'Change {room}\'s sensor value to {value} at {formatted_time}...')
+            print(f'Change {room}\'s set point value to {value} cfm at {formatted_time}...')
             # make record history
             records[room] = {str(formatted_time): value}
             successfully_actuated[room] = False 
@@ -241,12 +241,12 @@ def check_if_consistent(rooms_dict):
     # return pd.DataFrame.from_dict(sensor_data, orient='index', columns=columns_list) 
     # columns_list = ['date', 'time', 'SP', 'Actual', 'Result'] # columns for dataframe
 
-if __name__ == "__main__":
-    # only works for checking individual rooms
-    if len(sys.argv) != 3:
-        print("Invalid arguments\nUsage: python fault_detect.py room_num setpoint")
-    else:
-        check_if_consistent({sys.argv[1], sys.argv[2]})
+# if __name__ == "__main__":
+#     # only works for checking individual rooms
+#     if len(sys.argv) != 3:
+#         print("Invalid arguments\nUsage: python fault_detect.py room_num setpoint")
+#     else:
+#         check_if_consistent({sys.argv[1], sys.argv[2]})
 
 # example usage:
 #
